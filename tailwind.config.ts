@@ -13,6 +13,11 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['Roboto', 'system-ui', 'sans-serif'],
+        heading: ['Roboto Flex', 'system-ui', 'sans-serif'],
+        mono: ['Spline Sans Mono', 'monospace'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

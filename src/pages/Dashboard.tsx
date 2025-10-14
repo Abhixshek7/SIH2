@@ -1,6 +1,6 @@
 import DashboardLayout from "@/components/layout/DashboardLayout";
 import StatCard from "@/components/dashboard/StatCard";
-import { AlertTriangle, Shield, DollarSign, MapPin, TrendingUp, Users } from "lucide-react";
+import { AlertTriangle, Shield, DollarSign, MapPin } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line } from "recharts";
 
@@ -26,10 +26,10 @@ const predictionData = [
 const Dashboard = () => {
   return (
     <DashboardLayout>
-      <div className="p-8">
+      <div className="p-8 bg-gray-50 min-h-screen">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-foreground mb-2">Dashboard Overview</h1>
-          <p className="text-muted-foreground">Real-time cybercrime monitoring and predictive insights</p>
+          <h1 className="text-4xl font-heading font-bold text-foreground mb-2 tracking-tight">Dashboard Overview</h1>
+          <p className="text-muted-foreground font-mono text-sm">Real-time cybercrime monitoring and predictive insights</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
@@ -64,65 +64,65 @@ const Dashboard = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-          <Card className="p-6 bg-card border-border">
-            <h3 className="text-lg font-semibold text-foreground mb-4">Daily Complaints Trend</h3>
+          <Card className="p-6 bg-white border border-border shadow-sm">
+            <h3 className="text-lg font-heading font-semibold text-foreground mb-6 uppercase tracking-wide">Daily Complaints Trend</h3>
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={complaintsData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-                <XAxis dataKey="day" stroke="hsl(var(--muted-foreground))" />
-                <YAxis stroke="hsl(var(--muted-foreground))" />
+                <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" vertical={false} />
+                <XAxis dataKey="day" stroke="#6b7280" style={{ fontSize: '12px' }} />
+                <YAxis stroke="#6b7280" style={{ fontSize: '12px' }} />
                 <Tooltip
                   contentStyle={{
-                    backgroundColor: "hsl(var(--card))",
-                    border: "1px solid hsl(var(--border))",
-                    borderRadius: "8px",
+                    backgroundColor: "#ffffff",
+                    border: "1px solid #e5e7eb",
+                    borderRadius: "2px",
                   }}
                 />
-                <Bar dataKey="complaints" fill="hsl(var(--primary))" radius={[8, 8, 0, 0]} />
+                <Bar dataKey="complaints" fill="#000000" />
               </BarChart>
             </ResponsiveContainer>
           </Card>
 
-          <Card className="p-6 bg-card border-border">
-            <h3 className="text-lg font-semibold text-foreground mb-4">Prediction Accuracy Trend</h3>
+          <Card className="p-6 bg-white border border-border shadow-sm">
+            <h3 className="text-lg font-heading font-semibold text-foreground mb-6 uppercase tracking-wide">Prediction Accuracy Trend</h3>
             <ResponsiveContainer width="100%" height={300}>
               <LineChart data={predictionData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-                <XAxis dataKey="month" stroke="hsl(var(--muted-foreground))" />
-                <YAxis stroke="hsl(var(--muted-foreground))" />
+                <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" vertical={false} />
+                <XAxis dataKey="month" stroke="#6b7280" style={{ fontSize: '12px' }} />
+                <YAxis stroke="#6b7280" style={{ fontSize: '12px' }} />
                 <Tooltip
                   contentStyle={{
-                    backgroundColor: "hsl(var(--card))",
-                    border: "1px solid hsl(var(--border))",
-                    borderRadius: "8px",
+                    backgroundColor: "#ffffff",
+                    border: "1px solid #e5e7eb",
+                    borderRadius: "2px",
                   }}
                 />
                 <Line
                   type="monotone"
                   dataKey="accuracy"
-                  stroke="hsl(var(--chart-2))"
-                  strokeWidth={3}
-                  dot={{ fill: "hsl(var(--chart-2))", r: 6 }}
+                  stroke="#000000"
+                  strokeWidth={2}
+                  dot={{ fill: "#000000", r: 4 }}
                 />
               </LineChart>
             </ResponsiveContainer>
           </Card>
         </div>
 
-        <Card className="p-6 bg-card border-border">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="text-lg font-semibold text-foreground">Risk Heatmap - Geographic Distribution</h3>
+        <Card className="p-6 bg-white border border-border shadow-sm">
+          <div className="flex items-center justify-between mb-6">
+            <h3 className="text-lg font-heading font-semibold text-foreground uppercase tracking-wide">Risk Heatmap - Geographic Distribution</h3>
             <div className="flex gap-2">
-              <span className="text-xs px-3 py-1 rounded-full bg-destructive/20 text-destructive">High Risk</span>
-              <span className="text-xs px-3 py-1 rounded-full bg-warning/20 text-warning">Medium Risk</span>
-              <span className="text-xs px-3 py-1 rounded-full bg-success/20 text-success">Low Risk</span>
+              <span className="text-xs px-3 py-1 bg-black text-white font-mono uppercase">High Risk</span>
+              <span className="text-xs px-3 py-1 bg-gray-400 text-white font-mono uppercase">Medium Risk</span>
+              <span className="text-xs px-3 py-1 bg-gray-200 text-black font-mono uppercase">Low Risk</span>
             </div>
           </div>
-          <div className="h-96 bg-muted/30 rounded-lg flex items-center justify-center">
+          <div className="h-96 bg-gray-100 border border-border flex items-center justify-center">
             <div className="text-center">
-              <MapPin className="w-16 h-16 text-primary mx-auto mb-4" />
-              <p className="text-muted-foreground">Interactive GIS map integration</p>
-              <p className="text-sm text-muted-foreground">Real-time hotspot visualization</p>
+              <MapPin className="w-16 h-16 text-black mx-auto mb-4" />
+              <p className="text-muted-foreground font-mono text-sm uppercase">Interactive GIS Map Integration</p>
+              <p className="text-xs text-muted-foreground font-mono">Real-time hotspot visualization</p>
             </div>
           </div>
         </Card>
