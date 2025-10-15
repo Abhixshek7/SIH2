@@ -23,10 +23,9 @@ const users = [
 const Settings = () => {
   return (
     <DashboardLayout>
-      <div className="p-8">
-        <div className="mb-8">
+      <div className="p-6">
+        <div className="mb-4">
           <h1 className="text-3xl font-bold text-foreground mb-2">Admin Settings</h1>
-          <p className="text-muted-foreground">System configuration and user management</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

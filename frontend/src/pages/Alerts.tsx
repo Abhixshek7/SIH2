@@ -48,10 +48,9 @@ const Alerts = () => {
   return (
     <DashboardLayout>
       <div className="p-8">
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex items-center justify-between mb-1">
           <div>
             <h1 className="text-3xl font-bold text-foreground mb-2">Alerts & Notifications</h1>
-            <p className="text-muted-foreground">Real-time alert feed and notification management</p>
           </div>
           <Button variant="outline">
             <Filter className="w-4 h-4 mr-2" />

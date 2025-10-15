@@ -29,7 +29,7 @@ const Analytics = () => {
         <div className="flex items-center justify-between mb-8">
           <div>
             <h1 className="text-3xl font-bold text-foreground mb-2">Predictive Analytics</h1>
-            <p className="text-muted-foreground">AI-powered pattern detection and risk modeling</p>
+
           </div>
           <div className="flex gap-3">
             <Button variant="outline">

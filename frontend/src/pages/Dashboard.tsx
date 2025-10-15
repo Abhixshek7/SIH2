@@ -26,10 +26,10 @@ const predictionData = [
 const Dashboard = () => {
   return (
     <DashboardLayout>
-      <div className="p-8 space-y-8 bg-background min-h-screen">
+      <div className="p-6 space-y-4 bg-background min-h-screen ">
         <div>
-          <h1 className="text-4xl font-heading font-bold text-foreground mb-2">Dashboard Overview</h1>
-          <p className="text-muted-foreground font-mono text-sm uppercase tracking-wider">Real-time cybercrime monitoring and predictive insights</p>
+          <h1 className="text-4xl font-heading  font-bold text-foreground mb-2">Dashboard Overview</h1>
+          
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">

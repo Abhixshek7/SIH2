@@ -56,10 +56,10 @@ const alerts = [
 const LawEnforcement = () => {
   return (
     <DashboardLayout>
-      <div className="p-8">
-        <div className="mb-8">
+      <div className="p-6">
+        <div className="mb-2">
           <h1 className="text-3xl font-bold text-foreground mb-2">Law Enforcement Interface</h1>
-          <p className="text-muted-foreground">Secure portal for intelligence reports and evidence management</p>
+ 
         </div>
 
         <Card className="p-6 bg-card border-border mb-6">
