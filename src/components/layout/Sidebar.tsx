@@ -25,41 +25,33 @@ const Sidebar = () => {
       className={`${isCollapsed ? 'w-20' : 'w-64'} bg-sidebar border-r border-sidebar-border flex flex-col transition-all duration-300`}
     >
       <div className="p-6 border-b border-sidebar-border flex items-center justify-between">
-        {!isCollapsed ? (
-          <>
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-sidebar-primary flex items-center justify-center rounded-xl shadow-sm">
-                <Shield className="w-7 h-7 text-sidebar-primary-foreground" />
-              </div>
-              <div>
-                <h1 className="font-heading font-semibold text-sidebar-primary tracking-tight text-lg">I4C PORTAL</h1>
-                <p className="text-xs text-sidebar-foreground/60 font-mono uppercase tracking-wider">NCPFramework</p>
-              </div>
-            </div>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsCollapsed(!isCollapsed)}
-              className="text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground rounded-lg"
-            >
-              <X className="w-5 h-5" />
-            </Button>
-          </>
-        ) : (
-          <div className="w-full flex flex-col items-center gap-3">
+        {!isCollapsed && (
+          <div className="flex items-center gap-3">
             <div className="w-12 h-12 bg-sidebar-primary flex items-center justify-center rounded-xl shadow-sm">
               <Shield className="w-7 h-7 text-sidebar-primary-foreground" />
             </div>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsCollapsed(!isCollapsed)}
-              className="text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground rounded-lg"
-            >
-              <Menu className="w-5 h-5" />
-            </Button>
+            <div>
+              <h1 className="font-heading font-semibold text-sidebar-primary tracking-tight text-lg">I4C PORTAL</h1>
+              <p className="text-xs text-sidebar-foreground/60 font-mono uppercase tracking-wider">NCPFramework</p>
+            </div>
           </div>
         )}
+        {isCollapsed && (
+          <div className="w-12 h-12 bg-sidebar-primary flex items-center justify-center mx-auto rounded-xl shadow-sm">
+            <Shield className="w-7 h-7 text-sidebar-primary-foreground" />
+          </div>
+        )}
+      </div>
+
+      <div className="p-4 border-b border-sidebar-border">
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={() => setIsCollapsed(!isCollapsed)}
+          className="w-full text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground justify-center rounded-lg"
+        >
+          {isCollapsed ? <Menu className="w-5 h-5" /> : <X className="w-5 h-5" />}
+        </Button>
       </div>
 
       <nav className="flex-1 p-4 space-y-2">
