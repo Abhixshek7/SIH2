@@ -17,19 +17,19 @@ const StatCard = ({ icon: Icon, label, value, change, trend = "neutral" }: StatC
   };
 
   return (
-    <Card className="p-6 bg-card border border-border hover:shadow-lg transition-shadow">
+    <Card className="p-6 bg-card border-0 shadow-md hover:shadow-lg transition-all duration-300">
       <div className="flex items-start justify-between">
         <div className="flex-1">
-          <p className="text-xs uppercase tracking-wider text-muted-foreground font-mono mb-2">{label}</p>
+          <p className="text-xs uppercase tracking-wider text-muted-foreground font-mono mb-3">{label}</p>
           <p className="text-4xl font-heading font-bold text-foreground mb-2">{value}</p>
           {change && (
-            <p className={`text-xs font-medium ${trendColors[trend]}`}>
+            <p className={`text-sm font-medium ${trendColors[trend]}`}>
               {change}
             </p>
           )}
         </div>
-        <div className="w-12 h-12 bg-black flex items-center justify-center">
-          <Icon className="w-6 h-6 text-white" />
+        <div className="w-14 h-14 rounded-xl bg-primary/5 flex items-center justify-center">
+          <Icon className="w-7 h-7 text-primary" />
         </div>
       </div>
     </Card>
