@@ -22,39 +22,56 @@ const Sidebar = () => {
 
   return (
     <aside 
-      className={`${isCollapsed ? 'w-20' : 'w-64'} bg-black border-r border-gray-800 flex flex-col transition-all duration-300`}
+      className={`${isCollapsed ? 'w-20' : 'w-64'} bg-sidebar border-r border-sidebar-border flex flex-col transition-all duration-300`}
     >
-      <div className="p-6 border-b border-gray-800 flex items-center justify-between">
-        {!isCollapsed && (
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-white flex items-center justify-center">
-              <Shield className="w-6 h-6 text-black" />
+      <div className="p-6 border-b border-sidebar-border flex items-center justify-between">
+        {!isCollapsed ? (
+          <>
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 bg-sidebar-primary flex items-center justify-center rounded-xl shadow-sm">
+                <Shield className="w-7 h-7 text-sidebar-primary-foreground" />
+              </div>
+              <div>
+                <h1 className="font-heading font-semibold text-sidebar-primary tracking-tight text-lg">I4C PORTAL</h1>
+                <p className="text-xs text-sidebar-foreground/60 font-mono uppercase tracking-wider">NCPFramework</p>
+              </div>
             </div>
-            <div>
-              <h1 className="font-heading font-semibold text-white tracking-tight">I4C PORTAL</h1>
-              <p className="text-xs text-gray-400 font-mono uppercase tracking-wider">NCPFramework</p>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsCollapsed(!isCollapsed)}
+              className="text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground rounded-lg"
+            >
+              <X className="w-5 h-5" />
+            </Button>
+          </>
+        ) : (
+          <div className="w-full flex flex-col items-center gap-3">
+            <div className="w-12 h-12 bg-sidebar-primary flex items-center justify-center rounded-xl shadow-sm">
+              <Shield className="w-7 h-7 text-sidebar-primary-foreground" />
             </div>
-          </div>
-        )}
-        {isCollapsed && (
-          <div className="w-10 h-10 bg-white flex items-center justify-center mx-auto">
-            <Shield className="w-6 h-6 text-black" />
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsCollapsed(!isCollapsed)}
+              className="text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground rounded-lg"
+            >
+              <Menu className="w-5 h-5" />
+            </Button>
           </div>
         )}
       </div>
 
-    
-
-      <nav className="flex-1 p-4 space-y-1">
+      <nav className="flex-1 p-4 space-y-2">
         {navItems.map((item) => (
           <NavLink
             key={item.path}
             to={item.path}
             className={({ isActive }) =>
-              `flex items-center ${isCollapsed ? 'justify-center' : 'gap-3'} px-4 py-3 transition-all ${
+              `flex items-center ${isCollapsed ? 'justify-center' : 'gap-3'} px-4 py-3 rounded-lg transition-all ${
                 isActive
-                  ? "bg-white text-black font-medium"
-                  : "text-gray-300 hover:bg-gray-800 hover:text-white"
+                  ? "bg-sidebar-primary text-sidebar-primary-foreground font-medium shadow-sm"
+                  : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
               }`
             }
             title={isCollapsed ? item.label : undefined}
@@ -65,10 +82,10 @@ const Sidebar = () => {
         ))}
       </nav>
 
-      <div className="p-4 border-t border-gray-800">
+      <div className="p-4 border-t border-sidebar-border">
         <Button
           variant="ghost"
-          className={`w-full ${isCollapsed ? 'justify-center' : 'justify-start'} text-gray-300 hover:bg-gray-800 hover:text-white`}
+          className={`w-full ${isCollapsed ? 'justify-center' : 'justify-start'} text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground rounded-lg`}
           onClick={handleLogout}
           title={isCollapsed ? "Logout" : undefined}
         >
